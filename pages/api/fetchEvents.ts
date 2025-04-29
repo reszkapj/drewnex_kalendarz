@@ -121,7 +121,12 @@ export default async function handler(req, res) {
   }
 
   // Zamień na tablicę
-  const finalEvents = Object.values(groupedEvents);
+  const finalEvents: {
+  title: string;
+  durationMinutes: number;
+  count: number;
+  groupName: string;
+}[] = Object.values(groupedEvents);
 
   // Posortuj po czasie trwania malejąco
   finalEvents.sort((a, b) => b.durationMinutes - a.durationMinutes);
